@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React </title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .button{
+            padding: 10px 40px;
+            border-radius: 8px;
+            color: white;
+            position:  absolute;
+            left: 50%;            
+            cursor: pointer;
+            text-decoration: none;
+            background-color: green;
+            
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+
+        function CourseItem( {onClick, khoa}){
+           
+        
+        
+            return <div className="course-item">
+                <h1>Course Item</h1>
+
+                <h2>{khoa.id}</h2>
+                <h2>{khoa.slug}</h2>
+                <h2 onClick={()=>onClick(khoa)} >{khoa.title}</h2>
+                <h2>{khoa.price}</h2>
+                <h2>{khoa.old_price}</h2>
+            
+       
+
+            </div>
+        
+           
+        }
+        /*const Form={
+            Input(){
+                return <input/>
+            },
+            Checkbox(){
+                return <input type="checkbox"/>
+            }
+        }*/
+        function Button({title, onClick, href}) {
+            let Component='button'
+            const prop ={}
+            if(href){
+                Component ='a'
+                prop.href=href
+
+                
+            }
+            if(onClick){
+                prop.onClick=onClick
+            }
+            return( 
+                <Component className="button" {...prop}>{title}</Component>
+               
+            )
+        }
+        function App() {
+            const courses = [
+                {
+                    id: 1,
+                    slug: 'reactjs',
+                    title: 'React JS',
+                    price: 100,
+                    old_price: 200
+                },
+                {
+                    id: 2,
+                    slug: 'angular',
+                    title: 'Angular',
+                    price: 200,
+                    old_price: 300
+                },
+                {
+                    id: 3,
+                    slug: 'vuejs',
+                    title: 'Vue JS',
+                    price: 300,
+                    old_price: 400
+                }
+            ]
+
+            const handleClick = (khoa) => {
+                alert(khoa.title)
+            }
+            
+            const handleClicks = () => {
+                alert(Math.random())
+            }
+
+            
+
+            /*const type='Input';
+            const Component=Form[type];*/
+
+            
+            return(
+            <div className="wrapper">
+            
+                    
+                    <Button 
+                    title="Submit"
+                    onClick={handleClicks}
+                    href ="https://www.w3schools.com/jsref/jsref_map.asp"
+                    />
+
+                     
+                     {courses.map(khoa => (
+                        <CourseItem
+                            key={khoa.id}
+                            khoa={khoa}
+                            onClick={handleClick}
+                        />
+                    ))
+
+                    }
+                
+                
+          
+            
+              
+                <div className="footer">Footer</div>
+            </div>           
+           )}          
+        ReactDOM.render(<App/>, document.getElementById('app'));
+    </script>
+</body>
+</html>

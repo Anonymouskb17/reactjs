@@ -26,19 +26,33 @@
     <div id="app"></div>
 
     <script type="text/babel">
-        function Button({title,primary}){
+        /*function Button({title,primary}){
             return( 
             console.log(primary),    
             <button>{title}</button>
-        )}
-
+        )}*/
+        function Input({title ,...isProps}){
+            return(
+                <div>
+                    <label>{title}</label>
+                    <input {...isProps}></input>
+                </div>
+            )
+        }
         function App() {
         
             return(
             <div className="wrapper">
-                  <Button
-                  title="click me"
-                  primary></Button>
+                  <Input
+                  title="Nhập vào đây"
+                  placeholder="Chọn..."
+                  onFocus={()=>console.log(Math.random())}
+                  >
+                  
+                  
+                  
+                  
+                </Input>
                     
                
                      
@@ -53,5 +67,7 @@
            )}          
         ReactDOM.render(<App/>, document.getElementById('app'));
     </script>
+
+
 </body>
 </html>

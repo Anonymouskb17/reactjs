@@ -8,18 +8,7 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
-        .button{
-            padding: 10px 40px;
-            border-radius: 8px;
-            color: white;
-            position:  absolute;
-            left: 50%;            
-            cursor: pointer;
-            text-decoration: none;
-            background-color: green;
-            
-           
-        }
+        
     </style>
 </head>
 <body>
@@ -31,28 +20,32 @@
             console.log(primary),    
             <button>{title}</button>
         )}*/
-        function Input({title ,...isProps}){
+        /*function Input({title ,...isProps}){
             return(
                 <div>
                     <label>{title}</label>
                     <input {...isProps}></input>
                 </div>
             )
+        }*/
+        function List({data,children}) {
+           
+            return(
+                <ul>
+                 {/*{data.map((item,index)=> children(item,index))}*/}
+                 {data.map(children)}
+                </ul>
+            )
         }
+
         function App() {
-        
+            const cars = ['BMW', 'Audi', 'Mercedes', 'Toyota', 'Ford'];
             return(
             <div className="wrapper">
-                  <Input
-                  title="Nhập vào đây"
-                  placeholder="Chọn..."
-                  onFocus={()=>console.log(Math.random())}
-                  >
-                  
-                  
-                  
-                  
-                </Input>
+                <List data={cars}>
+                    {(item, index)=> <li key={index}>{item}</li>}
+                </List>
+                
                     
                
                      
@@ -61,8 +54,7 @@
                 
           
             
-              
-            <div className="footer">Footer</div>
+          
             </div>           
            )}          
         ReactDOM.render(<App/>, document.getElementById('app'));

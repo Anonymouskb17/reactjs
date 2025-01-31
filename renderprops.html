@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React </title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .button{
+            padding: 10px 40px;
+            border-radius: 8px;
+            color: white;
+            position:  absolute;
+            left: 50%;            
+            cursor: pointer;
+            text-decoration: none;
+            background-color: green;
+            
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        function Button({title,primary}){
+            return( 
+            console.log(primary),    
+            <button>{title}</button>
+        )}
+
+        function App() {
+        
+            return(
+            <div className="wrapper">
+                  <Button
+                  title="click me"
+                  primary></Button>
+                    
+               
+                     
+                   
+                
+                
+          
+            
+              
+            <div className="footer">Footer</div>
+            </div>           
+           )}          
+        ReactDOM.render(<App/>, document.getElementById('app'));
+    </script>
+</body>
+</html>

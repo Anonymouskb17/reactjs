@@ -27,51 +27,25 @@
 
     <script type="text/babel">
 
-
-        function CourseItem( {onClick, khoa}){
-           
-        
-        
-            return <div className="course-item">
-                <h1>Course Item</h1>
-
-                <h2>{khoa.id}</h2>
-                <h2>{khoa.slug}</h2>
-                <h2 onClick={()=>onClick(khoa)} >{khoa.title}</h2>
-                <h2>{khoa.price}</h2>
-                <h2>{khoa.old_price}</h2>
-            
-       
-
-            </div>
-        
-           
-        }
-        /*const Form={
-            Input(){
-                return <input/>
-            },
-            Checkbox(){
-                return <input type="checkbox"/>
-            }
-        }*/
-        function Button({title, onClick, href}) {
-            let Component='button'
-            const prop ={}
-            if(href){
-                Component ='a'
-                prop.href=href
-
-                
-            }
+        function Button({...props}) {
+            const pri = []
             if(onClick){
-                prop.onClick=onClick
+                price= "300"
             }
-            return( 
-                <Component className="button" {...prop}>{title}</Component>
-               
+            return (
+                <div>
+                    <button onClick={()=>onClick(onClick)}>{props.title}</button>
+                   
+                </div>
+                                
+
             )
         }
+           
+        
+     
+       
+        
         function App() {
             const courses = [
                 {
@@ -97,46 +71,42 @@
                 }
             ]
 
-            const handleClick = (khoa) => {
+            /*const handleClick = (khoa) => {
                 alert(khoa.title)
             }
             
             const handleClicks = () => {
                 alert(Math.random())
-            }
+            }*/ 
 
             
 
             /*const type='Input';
             const Component=Form[type];*/
-
+            
+            const handleClick = () => {
+                
+            }
             
             return(
             <div className="wrapper">
             
                     
-                    <Button 
-                    title="Submit"
-                    onClick={handleClicks}
-                    href ="https://www.w3schools.com/jsref/jsref_map.asp"
-                    />
+                <Button
+                    onClick={() => alert('React JS')}
+                    title="Click me"
+                    price={100}
+                    old_price={200}
+                />
 
                      
-                     {courses.map(khoa => (
-                        <CourseItem
-                            key={khoa.id}
-                            khoa={khoa}
-                            onClick={handleClick}
-                        />
-                    ))
-
-                    }
+                   
                 
                 
           
             
               
-                <div className="footer">Footer</div>
+            <div className="footer">Footer</div>
             </div>           
            )}          
         ReactDOM.render(<App/>, document.getElementById('app'));

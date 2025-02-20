@@ -23,7 +23,7 @@ module.exports = {
   // Chứa các plugins sẽ cài đặt trong tương lai
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: "./public/index.html", // File template html
     }),
   ],
 };

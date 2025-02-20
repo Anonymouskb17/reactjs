@@ -1,0 +1,20 @@
+/* import styles from "./Button.module.css";
+import clsx from "clsx";
+function Button({ primary }) {
+  const pri = clsx(styles.heading, {
+    [styles.active]: primary,
+  });
+  return <button className={pri}>Click me</button>;
+}
+export default Button;
+
+
+.heading{
+    padding: 4px 20px;
+    border:  1px solid #ccc;
+    border-radius: 2px;
+}
+
+.active{
+    background: #0d6efd;
+} */
